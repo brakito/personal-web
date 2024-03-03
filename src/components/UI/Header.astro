@@ -1,0 +1,72 @@
+---
+import Burger from "./Burger.astro";
+
+type Urltype = "#" | "/";
+
+interface Url {
+  type: Urltype;
+  content: string;
+}
+
+interface Props {
+  links: Url[];
+}
+
+const { links } = Astro.props;
+---
+
+<header
+  id="header"
+  class="lg:w-[55rem] max-w-[100%] lg:mx-auto mx-4 lg:sticky fixed top-4 z-10">
+  <Burger />
+  <nav id="navigation" class="lg:flex hidden lg:flex-row lg:justify-between lg:items-center w-fit gap-7 lg:px-4 px-2 py-2 rounded-xl">
+    {
+      links.map((link: Url) => {
+        return (
+          <a
+            class="menu-item lg:hover:drop-shadow-glow lg:hover:text-[--accent-color] transition-all text-xl capitalize"
+            href={`${link.type}${link.content}`}
+          >
+            {link.content}
+          </a>
+        );
+      })
+    }
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('header');
+  const menu = document.getElementById('navigation');
+  const menuItems = document.getElementsByClassName('menu-item');
+  let width = window.innerWidth;
+
+  const menuHandler = () => {
+    if(width > 1024 && window.scrollY === 0){
+      header?.classList.remove("scroll-bg");
+    } else {
+      header?.classList.add("scroll-bg");
+    }
+  }
+
+  window.addEventListener('scroll', menuHandler);
+  menuHandler();
+
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+    menuHandler();
+
+    if (width > 1024) {
+      menu!.classList.remove("hidden");
+    } else {
+      menu!.classList.add("hidden");
+    }
+  });
+
+  for (let i = 0; i < menuItems.length; i++) {
+    menuItems[i].addEventListener("click", () => {
+      menu!.classList.add("hidden");
+      menu!.classList.remove("show-menu");
+    })
+  }
+</script>

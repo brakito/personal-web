@@ -1,0 +1,36 @@
+---
+import LinkedIn from "../icons/LinkedIn.astro";
+
+type importancy = "main" | "secondary" | "low";
+
+interface Props {
+  url: string,
+  label: string,
+  target: string,
+  level: importancy
+}
+
+const {url, label, target, level} = Astro.props;
+
+let styles: string = "";
+if (level === "main") {
+  styles = "text-[--secondary-color] flex items-center gap-3 px-6 py-2 rounded-xl ring-1 ring-[--accent-color] ring-inset bg-[--main-color] lg:hover:drop-shadow-glow lg:hover:bg-[--color-contrast] bg-[--main-color] transition-all w-fit";
+} else if (level === "secondary") {
+  styles = "text-[--secondary-color] flex items-center gap-3 px-4 underline decoration-wavy rounded-xl hover:ring-[--accent-color] w-fit";
+} else if (level === "low") {
+  styles = "text-[--accent-color] flex items-center gap-3 px-4 underline decoration-wavy decoration-[--accent-color] w-fit";
+}
+---
+
+<a
+  class={styles}
+  href={url}
+  target={target}
+>
+  {
+    label !== "LinkedIn"
+    ? ""
+    : <LinkedIn />
+  }
+  {label}
+</a>

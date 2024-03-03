@@ -1,0 +1,31 @@
+---
+import Button from "../UI/Button.astro";
+
+interface Props {
+  image: string,
+  company: string,
+  position: string,
+  description: string,
+}
+
+const {image, company, position, description}: Props = Astro.props;
+---
+
+<article
+  style={`background-image: url(./${image}.webp)`}
+  class="bg-no-repeat bg-cover p-8 bg rounded-xl mb-10 text-white w-full"
+>
+  <small>{company}</small>
+  <h3 class="text-2xl mb-4">{position}</h3>
+  <p class="max-w-[35rem] text-pretty">
+    {description}
+  </p>
+  <div class="flex mt-4">
+    <Button
+      url="https://drive.google.com/file/d/1oSqrEjhfXVurGEgMuzRj7yB5i5sQpcqt/view?usp=sharing"
+      label="View my CV for more info"
+      target="_blank"
+      level="main"
+    />
+  </div>
+</article>

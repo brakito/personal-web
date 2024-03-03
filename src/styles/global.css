@@ -3,22 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --main-color: #1D252D;
-  --secondary-color: #fff;
-  --accent-color: #7F12FF;
+  --mani-color: #fff;
+  --secondary-color: #1D252D;
+  --accent-color: rgb(127,18,255);
+  --color-contrast: #efe9e9;
 }
 
 @font-face {
   font-family: 'Open Sans' sans-serif;
-  src: url('../../public/open-sans.ttf') format('ttf');
+  src: url('open-sans.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  overflow-y: scroll;
   box-sizing: border-box;
-  font-family: 'Open Sans';
+  color: var(--accent-color);
+  font-size: 18px;
+}
+
+@layer components {
+  .scroll-bg > nav {
+    @apply backdrop-blur bg-[#1D252D]/30 w-fit z-20 ring-1 ring-white/30;
+  }
+
+  .show-menu {
+    @apply flex flex-col;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-color: #1D252D;
+    --secondary-color: #fff;
+    --color-contrast: #2a313a;
+  }
 }

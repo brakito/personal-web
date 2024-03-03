@@ -12,7 +12,7 @@ const {image, company, position, description}: Props = Astro.props;
 ---
 
 <article
-  style={`background-image: url(./${image}.webp)`}
+  style={`background-image: url(./public/${image}.webp)`}
   class="bg-no-repeat bg-cover p-8 bg rounded-xl mb-10 text-white w-full"
 >
   <small>{company}</small>

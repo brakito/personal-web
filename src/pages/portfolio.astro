@@ -30,7 +30,7 @@ const links: Url[] = [
 
   <hero
     id="start"
-    class="flex flex-col w-fill lg:mx-auto mx-6 my-8 mt-20 rounded-2xl lg:max-w-[55rem]"
+    class="flex flex-col w-fill lg:mx-auto mx-4 my-8 mt-20 rounded-2xl lg:max-w-[55rem]"
   >
     <Image
       loading="eager"
@@ -48,7 +48,7 @@ const links: Url[] = [
       I leverage my skills to develop useful applications for users, meeting their expected requirements.
     </p>
 
-    <div class="flex gap-3 items-center mt-8">
+    <div class="flex gap-3 items-center mt-8 flex-wrap">
       <Button
         url="https://drive.google.com/file/d/1oSqrEjhfXVurGEgMuzRj7yB5i5sQpcqt/view?usp=sharing"
         label="Check out my CV"
@@ -59,12 +59,12 @@ const links: Url[] = [
         url="https://www.linkedin.com/in/brayan-arango/"
         label="LinkedIn"
         target="_blank"
-        level="secondary"
+        level="low"
       />
     </div>
   </hero>
 
-  <main class="lg:max-w-[55rem] lg:mx-auto mx-6 mt-20">
+  <main class="lg:max-w-[55rem] lg:mx-auto mx-4 mt-20">
     <section id="experience">
       <h2 class="text-3xl mb-8">Experience</h2>
 
@@ -127,7 +127,7 @@ const links: Url[] = [
           <span id="textCopy">arangobrmst@gmail</span>
           <button
             id="buttonCopy"
-            class="text-[--secondary-color] flex items-center gap-3 px-6 py-2 rounded-xl ring-1 ring-[--accent-color] ring-inset bg-[--main-color] lg:hover:drop-shadow-glow hover:bg-[--color-contrast] transition-all w-fit">
+            class="dark:text-[--seconday-color] text-[--main-color] flex items-center gap-3 px-4 py-2 rounded-xl ring-1 ring-[--accent-color] ring-inset lg:hover:drop-shadow-glow lg:hover:bg-[--color-contrast] dark:bg-[--main-color] bg-[--secondary-color] transition-all w-fit">
             Copy email
             </button>
         </article>
@@ -148,12 +148,14 @@ const links: Url[] = [
         setTimeout(() => {
           text!.innerHTML = "arangobrmst@gmail";
           container!.style.background = "transparent";
+          text!.style.color = "var(--secondary-color)";
         }, 1000);
         text!.innerHTML = "successfully copied!";
+        text!.style.color = "#fff";
         container!.style.background = "var(--accent-color)";
       })
       .catch((err) => {
-        console.error("Error al copiar al portapapeles:", err);
+        console.error("Error copy to clipboard:", err);
       });
   });
 </script>

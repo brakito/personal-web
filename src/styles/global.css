@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --mani-color: #fff;
+  --main-color: #fff;
   --secondary-color: #1D252D;
   --accent-color: rgb(127,18,255);
-  --color-contrast: #efe9e9;
+  --color-contrast: #2a313a;
 }
 
 @font-face {
@@ -26,7 +26,7 @@ body {
 
 @layer components {
   .scroll-bg > nav {
-    @apply backdrop-blur bg-[#1D252D]/30 w-fit z-20 ring-1 ring-white/30;
+    @apply ring-1 backdrop-blur dark:ring-white/30  dark:bg-[#1D252D]/30 ring-[#1D252D]/30 bg-[#FFFFFF]/30;
   }
 
   .show-menu {
@@ -38,6 +38,5 @@ body {
   :root {
     --main-color: #1D252D;
     --secondary-color: #fff;
-    --color-contrast: #2a313a;
   }
 }

@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Open Sans' sans-serif;
-  src: url('open-sans.ttf') format('ttf');
+  src: url('../public/open-sans.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
       },
 			dropShadow: {
 				glow: [

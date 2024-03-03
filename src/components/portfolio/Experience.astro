@@ -1,6 +1,5 @@
 ---
 import Button from "../UI/Button.astro";
-import "../../assets/accenture.webp";
 
 interface Props {
   image: string,
@@ -13,7 +12,7 @@ const {image, company, position, description}: Props = Astro.props;
 ---
 
 <article
-  style={`background-image: url(./src/assets/${image}.webp)`}
+  style={`background-image: url(/${image}.webp)`}
   class="bg-no-repeat bg-cover p-8 bg rounded-xl mb-10 text-white w-full"
 >
   <small>{company}</small>

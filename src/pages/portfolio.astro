@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import myImage from "./public/Me.webp";
+import myImage from "../../public/me.webp";
 
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/UI/Header.astro";
@@ -88,7 +88,7 @@ const links: Url[] = [
 
       <Project
         img={{
-          url: "./src/assets/chessfy.webp",
+          url: "/chessfy.webp",
           alt: "Chessfy - create chess training planes",
         }}
         title="Chessfy"
@@ -102,7 +102,7 @@ const links: Url[] = [
 
       <Project
         img={{
-          url: "./src/assets/iris.webp",
+          url: "/iris.webp",
           alt: "Iris - color palettes generator",
         }}
         title="Iris"

@@ -17,9 +17,9 @@ const { links } = Astro.props;
 
 <header
   id="header"
-  class="lg:w-[55rem] max-w-[100%] lg:mx-auto mx-4 lg:sticky fixed top-4 z-10">
+  class="lg:w-[55rem] max-w-full lg:mx-auto lg:sticky fixed right-4 left-4 top-4 z-10 lg:block flex flex-col items-end">
   <Burger />
-  <nav id="navigation" class="relative top-4 flex flex-col lg:flex-row lg:justify-between lg:items-center w-fit gap-7 lg:px-4 px-4 py-4 rounded-xl">
+  <nav id="navigation" class="relative mt-4 flex flex-col lg:flex-row lg:justify-between lg:items-center w-fit gap-7 lg:px-4 px-8 py-4 rounded-xl items-center">
     {
       links.map((link: Url) => {
         return (

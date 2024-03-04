@@ -28,10 +28,6 @@ body {
   .scroll-bg > nav {
     @apply ring-1 backdrop-blur dark:ring-white/30  dark:bg-[#1D252D]/30 ring-[#1D252D]/30 bg-[#FFFFFF]/30;
   }
-
-  .show-menu {
-    @apply flex flex-col;
-  }
 }
 
 @media (prefers-color-scheme: dark) {

@@ -50,13 +50,13 @@ const links: Url[] = [
 
     <div class="flex gap-3 items-center mt-8 flex-wrap">
       <Button
-        url="https://drive.google.com/file/d/1oSqrEjhfXVurGEgMuzRj7yB5i5sQpcqt/view?usp=sharing"
+        url="https://drive.google.com/file/d/11DRQ2thbKdhTmXuSj6_JloO_mfNKWL2x/view?usp=sharing"
         label="Check out my CV"
         target="_blank"
         level="main"
       />
       <Button
-        url="https://www.linkedin.com/in/brayan-arango/"
+        url="https://www.linkedin.com/in/arkanedev/"
         label="LinkedIn"
         target="_blank"
         level="low"
@@ -124,7 +124,7 @@ const links: Url[] = [
         <p class="max-w-[30rem] text-xl grow">If you are interested in my profile, send an email or contact me on <a class="underline decoration-wavy" target="_blank" href="https://www.linkedin.com/in/brayan-arango/">LinkedIn</a>.</p>
 
         <article id="containerCopy" class="p-6 ring-1 ring-[--color-contrast] rounded-xl flex items-center lg:justify-between justify-center flex-wrap gap-8 transition-all min-w-[50%] grow">
-          <span id="textCopy">arangobrmst@gmail</span>
+          <span id="textCopy">arangobrmst@gmail.com</span>
           <button
             id="buttonCopy"
             class="dark:text-[--seconday-color] text-[--main-color] flex items-center gap-3 px-4 py-2 rounded-xl ring-1 ring-[--accent-color] ring-inset lg:hover:drop-shadow-glow lg:hover:bg-[--color-contrast] dark:bg-[--main-color] bg-[--secondary-color] transition-all w-fit">
@@ -143,10 +143,10 @@ const links: Url[] = [
   let container = document.getElementById("containerCopy");
   let button = document.getElementById("buttonCopy");
   button!.addEventListener("click", () => {
-    navigator.clipboard.writeText("arangobrmst@gmail")
+    navigator.clipboard.writeText("arangobrmst@gmail.com")
       .then(() => {
         setTimeout(() => {
-          text!.innerHTML = "arangobrmst@gmail";
+          text!.innerHTML = "arangobrmst@gmail.com";
           container!.style.background = "transparent";
           text!.style.color = "var(--secondary-color)";
         }, 1000);

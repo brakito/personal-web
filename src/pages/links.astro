@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import myImage from "../../public/Me.webp";
+import { Image } from "astro:assets";
+
+import Instagram from "../components/icons/Instagram.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import Behance from "../components/icons/Behance.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+
+const iconTags = {
+  Instagram: {
+    name: "Instagram",
+    icon: Instagram
+  }
+}
+
+type Link = {
+  label: string,
+  url: string,
+  info: string
+}
+
+const Social: Link[] = [
+  {
+    label: "Behance",
+    url: "https://www.behance.net/arkane-dev",
+    info: "Get to know my design work"
+  },
+  {
+    label: "Instagram",
+    url: "https://www.instagram.com/arkanedev/",
+    info: "Learn entrepreneurship and design"
+  },
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/arkanedev/",
+    info: "Don't miss anything"
+  },
+]
+
+const links: Link[] = [
+  {
+    label: "Pricing & Services",
+    url: "https://arkane-dev.netlify.app/clients",
+    info: "Let's work on your project!"
+  },
+  {
+    label: "Dev Portfolio",
+    url: "https://arkane-dev.netlify.app/portfolio",
+    info: "Look out my portfolio dev!"
+  },
+  {
+    label: "Free resources",
+    url: "https://arkane-dev.netlify.app/portfolio",
+    info: "Download and share free assets"
+  },
+]
+---
+
+<Layout title="Arkane Dev Links">
+  <hero
+    id="start"
+    class="flex flex-col w-fill lg:max-w-[55rem] lg:mx-auto mx-4 mt-20 p-10 rounded-2xl justify-center items-center text-center
+    ring-2 backdrop-blur dark:ring-[#FFFFFF]/15 ring-[#1D252D]/15 backdrop-filter
+    bg-gradient-to-bl dark:from-[#FFFFFF]/10 dark:to-[#FFFFFF]/0"
+  >
+    <Image
+      loading="eager"
+      src={myImage}
+      alt="Brayan Arango"
+      class="aspect-square w-[8rem]"
+    />
+
+    <h1 class="text-5xl mb-4 mt-8">Arkane Dev</h1>
+
+    <span class="max-w-[35rem] text-pretty text-2xl mb-4">
+      Development and graphic design
+    </span>
+
+    <div class="flex gap-4 justify-between border-t-2 border-[--accent-color] pt-4">
+      {
+        Social.map(link => {
+          return (
+            <a
+              aria-label={link.label}
+              href="https://www.instagram.com/arkanedev/"
+              class="p-3 border-2 border-[--accent-color] rounded-2xl hover:bg-[--accent-color] hover:drop-shadow-glow transition-colors"
+            >
+              <Instagram size="30" classes="hover:fill-[--accent-color]"/>
+            </a>
+          );
+        })
+      }
+    </div>
+  </hero>
+  <main class="lg:max-w-[55rem] lg:mx-auto mx-4 flex flex-col gap-7 justify-center items-center min-h-[100%] mt-8 mb-20">
+    {
+      links.map(link => {
+        return (
+          <a target="_blank" href={link.url} class="w-full text-center px-8 py-4 border-2 border-[--accent-color] rounded-2xl lg:hover:bg-[--accent-color] lg:hover:drop-shadow-glow transition-all lg:hover:text-[#ffffff] backdrop-blur">
+            <h3 class="lg:text-2xl text-xl">{link.label}</h3>
+            <span class="text-sm text-opacity-50">{link.info}</span>
+          </a>
+          // <Button
+          //   url={link.url}
+          //   label={link.label}
+          //   target="_blank"
+          //   level="main"
+          // />
+        );
+      })
+    }
+  </main>
+  <!-- <Footer /> -->
+</Layout>

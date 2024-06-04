@@ -5,6 +5,9 @@ import JS from "../icons/JS.astro";
 import CSS from "../icons/CSS.astro";
 import HTML from "../icons/HTML.astro";
 import React from "../icons/React.astro";
+import Express from "../icons/Express.astro";
+import Nodejs from "../icons/Nodejs.astro";
+import MySQL from "../icons/MySQL.astro";
 // import Tailwind from "../components/icons/Tailwind.astro";
 // import Astro from "../components/icons/Astro.astro";
 // import Node from "../components/icons/Node.astro";
@@ -35,9 +38,24 @@ const TECH = {
     class: "flex gap-2 items-center rounded-full px-3 py-1 bg-sky-400/50 w-fit",
     icon: React,
   },
+  Nodejs: {
+    name: "Nodejs",
+    class: "flex gap-2 items-center rounded-full px-3 py-1 bg-green-300/50 w-fit",
+    icon: Nodejs,
+  },
+  Express: {
+    name: "Express",
+    class: "flex gap-2 items-center rounded-full px-3 py-1 bg-gray-500/50 w-fit",
+    icon: Express,
+  },
+  MySQL: {
+    name: "MySQL",
+    class: "flex gap-2 items-center rounded-full px-3 py-1 bg-sky-200/50 w-fit",
+    icon: MySQL,
+  },
 };
 
-type Technologies = "JS" | "CSS" | "HTML" | "React";
+type Technologies = "JS" | "CSS" | "HTML" | "React" | "Nodejs" | "Express" | "MySQL";
 
 interface Props {
   img: {
@@ -65,7 +83,7 @@ let stack = inputStack.map((element) => {
     loading="lazy"
     src={img.url}
     alt={img.alt}
-    class="aspect-video md:w-[50%] w-full object-cover object-left max-w-full rounded-xl grow ring-1 ring-[--color-contrast]"
+    class="aspect-video md:w-[50%] w-full object-cover object-left max-w-full rounded-xl grow ring-1 ring-[--color-contrast] shrink-0"
   />
   
   <div class="grow">

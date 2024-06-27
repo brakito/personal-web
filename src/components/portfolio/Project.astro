@@ -10,13 +10,13 @@ import type { IProject } from "../../scripts/types";
 const { img, title, inputStack, description, preview } = Astro.props as IProject;
 ---
 
-<article class={"project grid grid-cols-2 gap-16 h-fit mb-16"}>
+<article class={"project lg:grid lg:grid-cols-2 lg:gap-16 flex flex-col gap-8 h-fit mb-16"}>
   <a href={preview.url} target="_blank" class="magic-image aspect-[4/3] w-full object-cover object-left max-w-full rounded-xl relative overflow-hidden">
     <Image
       loading="eager"
       src={img.url}
       alt={img.alt}
-      class="image aspect-[4/3] w-full object-cover object-left absolute left-0 right-0 bottom-0 top-28 m-auto transition-all ease-in-out"
+      class="image aspect-[4/3] w-full object-cover object-left lg:absolute left-0 right-0 bottom-0 top-28 m-auto lg:transition-all ease-in-out"
     />
   </a>
   

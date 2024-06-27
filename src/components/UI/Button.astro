@@ -7,12 +7,13 @@ interface Props {
   url: string,
   label: string,
   target: string,
-  level: importancy
+  level: importancy,
+  classlist?: string,
 }
 
-const {url, label, target, level} = Astro.props;
+const {url, label, target, level, classlist} = Astro.props;
 
-let styles: string = "flex items-center gap-2 px-4 py-2 w-fit ";
+let styles: string = `flex items-center gap-2 px-4 py-2 w-fit ${classlist} `;
 if (level === "main") {
   styles += "text-main bg-accent transition-colors w-fit lg:hover:bg-accentHover";
 } else if (level === "second") {

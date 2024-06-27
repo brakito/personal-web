@@ -46,15 +46,15 @@ body {
 }
 
 h1 {
-  @apply md:text-[7rem] md:leading-[7.5rem] max-w-[55rem] break-words text-[4.5rem] leading-[5.125rem] font-title;
+  @apply md:text-[7rem] md:leading-[7.5rem] lg:max-w-[55rem] break-words text-[4.5rem] leading-[5.125rem] font-title;
 }
 
 h2 {
-  @apply md:text-[3.5rem] md:leading-[4.125rem] max-w-[45rem] break-words text-[1.75rem] leading-[2.375rem] font-title;
+  @apply md:text-[3.5rem] md:leading-[4.125rem] max-w-[45rem] break-words text-[2.35rem] leading-[2.875rem] font-title;
 }
 
 h3 {
-  @apply md:text-[2.374rem] md:leading-[2.875rem] md:max-w-[45rem] max-w-[90%] break-words text-[1.374rem] leading-[1.875rem] font-title;
+  @apply md:text-[2.374rem] md:leading-[2.875rem] md:max-w-[45rem] max-w-[90%] break-words text-[1.45rem] leading-[1.775rem] font-title;
 }
 
 h4 {

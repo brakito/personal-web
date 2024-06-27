@@ -1,0 +1,82 @@
+---
+import JS from "../icons/JS.astro";
+import CSS from "../icons/CSS.astro";
+import HTML from "../icons/HTML.astro";
+import React from "../icons/React.astro";
+import Express from "../icons/Express.astro";
+import Nodejs from "../icons/Nodejs.astro";
+import MySQL from "../icons/MySQL.astro";
+import Vitest from "../icons/Vitest.astro";
+// import Tailwind from "../components/icons/Tailwind.astro";
+// import Astro from "../components/icons/Astro.astro";
+// import TypeScript from "../components/icons/TypeScript.astro";
+
+type Tech = {
+  icon: any,
+  name: string
+}
+
+const TECH = {
+  JS: {
+    name: "JavaScript",
+    icon: JS,
+  },
+  CSS: {
+    name: "CSS",
+    icon: CSS,
+  },
+  HTML: {
+    name: "HTML",
+    icon: HTML,
+  },
+  React: {
+    name: "React",
+    icon: React,
+  },
+  Nodejs: {
+    name: "Nodejs",
+    icon: Nodejs,
+  },
+  Express: {
+    name: "Express",
+    icon: Express,
+  },
+  MySQL: {
+    name: "MySQL",
+    icon: MySQL,
+  },
+  Vitest: {
+    name: "Vitest",
+    icon: Vitest,
+  },
+};
+
+const { inputStack, list } = Astro.props;
+
+let stack = inputStack.map((element: string) => {
+  return TECH[element as keyof typeof TECH];
+});
+---
+
+{
+  !list ?
+  <div class="mb-8 flex gap-3 flex-wrap">
+    {stack.map((element: Tech) => {
+      return <small class={"font-text flex gap-2 items-center py-1 px-3 border border-main rounded-full"}>
+                <element.icon size="14" />
+                {element.name}
+            </small>
+      })}
+  </div>
+
+  :
+
+  <div class="mb-8 grid gap-8 grid-cols-2">
+    {stack.map((element: Tech) => {
+      return <article class={"font-text flex gap-4 items-center"}>
+                <element.icon size="24" />
+                {element.name}
+            </article>
+      })}
+  </div>
+}

@@ -3,36 +3,121 @@
 @tailwind utilities;
 
 :root {
-  --main-color: #fff;
-  --secondary-color: #1D252D;
-  --accent-color: rgb(127,18,255);
+  --main-color: #1d252d;
+  --secondary-color: #F9F9FA;
+  --accent-color: #7f12ff;
   --color-contrast: #2a313a;
 }
 
 @font-face {
-  font-family: 'Open Sans' sans-serif;
-  src: url('/open-sans.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Alice';
+  src: url(/alice.ttf) format(truetype);
+  font-size: normal;
   font-display: swap;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(/open-sans.ttf) format(truetype);
+  font-size: normal;
+  font-display: swap;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(/open-sans-bold.ttf) format(truetype);
+  font-size: normal;
+  font-display: swap;
+  font-weight: bold;
 }
 
 body {
   overflow-y: scroll;
   box-sizing: border-box;
   color: var(--accent-color);
-  font-size: 18px;
+
 }
 
-@layer components {
-  .scroll-bg > nav {
+.curve-text {
+  shape-outside: circle(50%);
+  float: left;
+}
+
+h1 {
+  @apply md:text-[7rem] md:leading-[7.5rem] max-w-[55rem] break-words text-[4.5rem] leading-[5.125rem] font-title;
+}
+
+h2 {
+  @apply md:text-[3.5rem] md:leading-[4.125rem] max-w-[45rem] break-words text-[1.75rem] leading-[2.375rem] font-title;
+}
+
+h3 {
+  @apply md:text-[2.374rem] md:leading-[2.875rem] md:max-w-[45rem] max-w-[90%] break-words text-[1.374rem] leading-[1.875rem] font-title;
+}
+
+h4 {
+  @apply md:text-[2.374rem] md:leading-[2.875rem] md:max-w-[40rem] break-words text-[1.15rem] leading-[1.33rem] font-title;
+}
+
+p {
+  opacity: .8;
+  @apply font-text;
+}
+
+a {
+  @apply font-bold tracking-wide font-text;
+}
+
+span {
+  @apply font-text;
+}
+
+.scroll-bg {
+  @apply dark:bg-second/60 bg-[#FFFFFF]/30 border-main/20 backdrop-blur py-0;
+}
+
+.magic-image {
+  /* background-image: url('../../public/degBG.png') */
+  background: conic-gradient(from 180deg at 50% 125%, #22248c, rgba(29,37,45,1), #7f12ff);
+}
+
+.magic-image:hover > .image {
+  @apply top-0;
+  transform: scale(100%);
+  animation: float 3s ease-in-out infinite;
+}
+
+.image-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.deg-bg {
+  background: conic-gradient(from 180deg at 50% 103%, #7f12ff, rgba(29,37,45,1));
+}
+
+/* @layer components {
+  .scroll-bg {
     @apply ring-1 backdrop-blur dark:ring-white/30  dark:bg-[#1D252D]/30 ring-[#1D252D]/30 bg-[#FFFFFF]/30;
   }
-}
+} */
 
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --main-color: #1D252D;
-    --secondary-color: #fff;
+    --secondary-color: #F9F9FA;
   }
-}
+} */

@@ -1,0 +1,12 @@
+---
+const { id, extraStyles } = Astro.props;
+
+// la medida de sección (60rem por defecto) se debe cambiar en:
+// Section Layout (aquí), Header, Hero, Footer
+---
+
+<section id={id} class={"py-24" + " " + extraStyles}>
+  <div class={"lg:max-w-[60rem] lg:mx-auto mx-4"}>
+    <slot />
+  </div>
+</section>

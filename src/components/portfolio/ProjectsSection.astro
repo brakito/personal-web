@@ -1,0 +1,63 @@
+---
+import Project from "./Project.astro";
+import chessfy from "../../../public/chessfy.webp";
+import iris from "../../../public/iris.webp";
+import shortiko from "../../../public/Shortiko.webp";
+import SectionLayout from "../../layouts/SectionLayout.astro";
+---
+
+<SectionLayout id="projects" extraStyles="">
+  <h2 class="mb-16">Projects Experience</h2>
+
+  <!-- <div class="mb-16 flex gap-4">
+    <button class="py-2 px-4 ring-1 ring-main rounded-full bg-main text-second">Web aplications</button>
+    <button class="py-2 px-4 ring-1 ring-main rounded-full">Web sites</button>
+    <button class="py-2 px-4 ring-1 ring-main rounded-full">UI/UX</button>
+    <button class="py-2 px-4 ring-1 ring-main rounded-full">Branding</button>
+    <button class="py-2 px-4 ring-1 ring-main rounded-full">Design</button>
+  </div> -->
+
+  <Project
+    img={{
+      url: iris,
+      alt: "Iris - color palettes generator",
+    }}
+    title="Iris Color"
+    inputStack={["Nodejs", "React", "CSS", "JS"]}
+    description="Create color palettes and find the most beautiful color schemes for your project. This project is still in development."
+    preview={{
+      url: "https://iris-color.vercel.app/",
+      label: "Visit Iris website",
+    }}
+  />
+
+  <Project
+    img={{
+      url: chessfy,
+      alt: "Chessfy - create chess training planes",
+    }}
+    title="Chessfy"
+    inputStack={["HTML", "CSS", "JS"]}
+    description="An application to create chess training plans. You simply respond to some questions, and the app generates training microcycles."
+    preview={{
+      url: "https://chessfy.netlify.app/",
+      label: "Visit Chessfy website",
+    }}
+  />
+
+  <Project
+    img={{
+      url: shortiko,
+      alt: "Shortiko - link shortener",
+    }}
+    title="Shortiko"
+    inputStack={["Nodejs", "Express", "MySQL", "HTML", "CSS", "JS"]}
+    description="A personal link shortener that I developed as an experience using Express."
+    preview={{
+      url: "https://github.com/brakito/Shortiko",
+      label: "Look the code in GitHub",
+    }}
+  />
+
+  <p class="text-pretty">To view more projects and some crazy experiments, go to my <a class="underline decoration-wavy" target="_blank" href="https://github.com/brakito">GitHub</a> profile.</p>
+</SectionLayout>

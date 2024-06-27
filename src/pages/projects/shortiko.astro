@@ -1,0 +1,77 @@
+---
+import "../../styles/patterns.css"
+
+import Image from "astro/components/Image.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionLayout from "../../layouts/SectionLayout.astro";
+import Header from "../../components/UI/Header.astro";
+
+import image from "../../../public/Shortiko.webp"
+
+import ButtonsContainer from "../../components/UI/ButtonsContainer.astro";
+import Button from "../../components/UI/Button.astro";
+import Footer from "../../components/UI/Footer.astro";
+import Techs from "../../components/portfolio/Techs.astro";
+
+const techs = ["Nodejs", "Express", "MySQL", "HTML", "CSS", "JS"]
+---
+
+<Layout title="Shortiko">
+  <!-- <Header /> -->
+
+  <main class="flex flex-col justify-center w-fill py-24 clusterAccentPattern gridPatternMeshBlack">
+    <div class="lg:mx-auto mx-4 lg:max-w-[60rem] w-full relative z-10 flex items-center gap-16">
+      <div>
+        <h1 class="w-fit mb-2">Shortiko</h1>
+
+        <p>A personal link shortener that I developed as an experience using Express.</p>
+
+        <ButtonsContainer>
+          <Button 
+            url="https://github.com/brakito/Shortiko"
+            target="blank"
+            level="main"
+            label="Code in GitHub"
+          />
+
+          <Button 
+            url="https://shortiko.onrender.com/"
+            target="blank"
+            level="second"
+            label="Shortiko Website"
+          />
+        </ButtonsContainer>
+      </div>
+      <Image
+          src={image}
+          alt="Shortiko"
+          loading="eager"
+          class="image-float w-[50%]"
+        />
+    </div>
+  </main>
+
+  <SectionLayout>
+    
+    <div class="grid grid-cols-2 gap-16">
+      <div>
+        <!-- <h2 class="mb-16">About</h2> -->
+        
+        <h3 class="mb-8">Stack</h3>
+        
+        <Techs inputStack={techs} list=true />
+      </div>
+
+      <div>
+        <h3 class="mb-8">About</h3>
+
+        <p class="mb-4">Este proyecto me ayudo a entender como trabajar con una base de datos creando un “connection pool”, también fue la primera vez que use las variables de entorno.</p>
+        
+        <p>Use una variable de entrono para hacer la autenticación usando un simple middleware que compara el parámetro enviado desde el cliente con la variable de entorno que contiene la contraseña.</p>
+      </div>
+      
+    </div>
+  </SectionLayout>
+
+  <!-- <Footer /> -->
+</Layout>

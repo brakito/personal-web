@@ -1,0 +1,39 @@
+---
+import { link } from "../../scripts/globalConfig";
+
+import ButtonsContainer from "../UI/ButtonsContainer.astro"
+import Button from "../UI/Button.astro";
+---
+
+<hero id="start" class="flex flex-col justify-center w-fill py-40 min-h-[100vh] hero">
+  <div class="lg:mx-auto mx-4 lg:max-w-[60rem] w-full relative z-10">
+    <h3 class="font-title font-size curve flex items-center gap-6">
+      Web Developer
+      <span class="py-1 px-3 border-2 border-green-400 text-green-400 bg-green-400/20 rounded-full text-base font-bold">
+        Open To Work
+      </span>
+    </h3>
+
+    <h1 class="mt-4 mb-8 italic relative">
+      <span class="not-italic font-title">Hi, </span>
+      Brayan Arango
+      <span class="not-italic font-title"> Here!</span>
+    </h1>
+
+    <ButtonsContainer>
+      <Button
+        url="#contact"
+        label="Let's do business"
+        target=""
+        level="main"
+      />
+
+      <Button
+        url={link.CV}
+        label="Get resume"
+        target="_blank"
+        level="second"
+      />
+    </ButtonsContainer>
+  </div>
+</hero>

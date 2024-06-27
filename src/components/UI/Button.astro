@@ -1,7 +1,7 @@
 ---
 import LinkedIn from "../icons/LinkedIn.astro";
 
-type importancy = "main" | "secondary" | "low";
+type importancy = "main" | "second" | "low";
 
 interface Props {
   url: string,
@@ -12,13 +12,13 @@ interface Props {
 
 const {url, label, target, level} = Astro.props;
 
-let styles: string = "";
+let styles: string = "flex items-center gap-2 px-4 py-2 w-fit ";
 if (level === "main") {
-  styles = "text-[--main-color] dark:text-[--secondary-color] flex items-center gap- px-4 py-2 rounded-xl ring-1 ring-[--accent-color] ring-inset bg-[--main-color] lg:hover:drop-shadow-glow lg:hover:bg-[--color-contrast] bg-[--secondary-color] dark:bg-[--main-color] transition-all w-fit";
-} else if (level === "secondary") {
-  styles = "text-[--secondary-color] flex items-center gap-3 px-4 underline decoration-wavy rounded-xl w-fit";
+  styles += "text-main bg-accent transition-colors w-fit lg:hover:bg-accentHover";
+} else if (level === "second") {
+  styles += "text-main lg:hover:text-main/80 transition-colors capitalize ring-1 ring-main/90 ring-inset";
 } else if (level === "low") {
-  styles = "text-[--secondary-color] flex items-center gap-3 px-4 underline decoration-wavy decoration-[--secondary-color] w-fit";
+  styles += "text-main lg:hover:text-main/80 transition-colors capitalize w-fit";
 }
 ---
 
@@ -26,11 +26,4 @@ if (level === "main") {
   class={styles}
   href={url}
   target={target}
->
-  {
-    label !== "LinkedIn"
-    ? ""
-    : <LinkedIn />
-  }
-  {label}
-</a>
+>{label}</a>

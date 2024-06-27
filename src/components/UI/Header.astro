@@ -1,38 +1,60 @@
 ---
 import Burger from "./Burger.astro";
 
+import { Image } from "astro:assets";
+
+import myImage from "/public/Me.webp";
+import Button from "./Button.astro";
+
 type Urltype = "#" | "/";
 
 interface Url {
   type: Urltype;
   content: string;
+  callToAction?: boolean;
 }
 
-interface Props {
-  links: Url[];
-}
+const links: Url[] = [
+  { type: "#", content: "projects" },
+  { type: "#", content: "experience" },
+  { type: "#", content: "about" },
+  { type: "#", content: "contact", callToAction: true },
+];
 
-const { links } = Astro.props;
+// const { links } = Astro.props;
 ---
 
 <header
   id="header"
-  class="lg:w-[55rem] max-w-full lg:mx-auto lg:sticky fixed right-4 left-4 top-4 z-10 lg:block flex flex-col items-end">
-  <Burger />
-  <nav id="navigation" class="relative mt-4 flex flex-col lg:flex-row lg:justify-between lg:items-center w-fit gap-7 lg:px-4 px-8 py-4 rounded-xl items-center">
-    {
-      links.map((link: Url) => {
-        return (
-          <a
-            class="menu-item lg:hover:drop-shadow-glow lg:hover:text-[--accent-color] transition-all text-xl capitalize"
-            href={`${link.type}${link.content}`}
-          >
-            {link.content}
-          </a>
-        );
-      })
-    }
-  </nav>
+  class="fixed right-0 left-0 top-0 z-20 flex flex-col lg:flex-row lg:items-center lg:justify-between transition-all border-b border-transparent bg-second/0 py-4">
+  <div class="lg:w-[60rem] max-w-full lg:mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between">
+    <a href="/">
+      <Image
+        loading="eager"
+        src={myImage}
+        alt="Brayan Arango"
+        class="aspect-square w-[3rem] h-[3rem] rounded-full"
+      />
+    </a>
+
+    <Burger />
+
+    <nav id="navigation" class="relative mt-4 lg:mt-0 flex flex-col lg:flex-row lg:justify-between lg:items-center w-fit gap-7 lg:px-0 px-8 py-4 rounded-xl items-center">
+      {
+        links.map((link: Url) => {
+          return (
+            ! link.callToAction
+            ? <a
+              class="menu-item text-main lg:hover:text-main/80 transition-col capitalize"
+              href={`${link.type}${link.content}`}>
+              {link.content}
+            </a>
+            :<Button url="#contact" label="Contact me" target="" level="main"/> 
+          );
+        })
+      }
+    </nav>
+  </div>
 </header>
 
 <script>
